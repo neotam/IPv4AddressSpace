@@ -34,6 +34,7 @@ class IPInputs{
   static init(){
     globalThis.iprange = document.getElementById("iprange");
     globalThis.decimal_input = document.getElementById("decimal_ip");
+    globalThis.ip_class = document.getElementById("ip_class");
     globalThis.bin_input = document.getElementById("bin_input");
     globalThis.dotdecimal_input = document.getElementById("dotted_decimal_input");
     globalThis.hex_input = document.getElementById("hex_input0x");
@@ -47,11 +48,14 @@ class IPInputs{
     this.bin = value; 
     this.hex = value; 
     this.dotDecimal = value; 
+    this.ipClass = value;
   }
   
   static set decimal(value){
     decimal_input.value = value;
   }
+  
+
   
   static set range(value){
     iprange.value = value; 
@@ -60,7 +64,10 @@ class IPInputs{
   static set bin(value){
     let binvalue = IPAddress.decimalToBin(value);
     bin_input.value = binvalue;
+    let ipClass=IPAddress.ipAddressClass(binvalue);
+    ip_class.value=ipClass;
   }
+  
 
   static set hex(value){
     let hex_value = IPAddress.decimalToHex(value);
@@ -83,6 +90,7 @@ class IPInputs{
   static setOctet(num, value){
 
   }
+  
 
   
 }
@@ -125,7 +133,29 @@ class IPAddress {
     let hex = parseInt(value).toString(16).toUpperCase();
     return hex; 
   }
+  static ipAddressClass(value){
+      var four_digits=value.slice(0,4);
+      var x="";
+      if(four_digits.startsWith("0")){
+           x ="Class A"
+          
+      }
+      else if(four_digits.startsWith("10")){
+          x='Class B';
+      }
+      else if(four_digits.startsWith("110")){
+          x='Class C';
+      }
+      else if(four_digits.startsWith("1110")){
+            x='Class D';
+      }
+      else if(four_digits.startsWith("1111")){
+          x='Class E';
+    }
+      return x;
 
+  }
+  
 
 
 }
