@@ -77,10 +77,16 @@
     <main class="container">
     <section class="" style="">
         <section class="d-flex flex-column">
-          <div class="py-3">
-            <input id="decimal_ip" class="form-control form-control-lg"  type="number" min="0" max="4294967295" value="">
-            <small class="text-muted">Decimal equivalent value of IPv4 Address </small>
-          </div>  
+          <div class="row">
+            <div class="py-3 col-6">
+                <input id="decimal_ip" class="form-control form-control-lg" type="number" min="0" max="4294967295" value="">
+                <small class="text-muted">Decimal equivalent value of IPv4 Address</small>
+            </div>
+            <div class="py-3 col-6">
+                <input id="ip_class" class="form-control form-control-lg" >
+                <small class="text-muted">IPV4 Address Class</small>
+            </div>
+        </div>
           
           <section class="py-3" id="ipdotted">
               <!-- <input id="dotted_decimal_input" class="form-control form-control-lg" value=""> -->
