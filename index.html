@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title> CIDR Prefix to Dotted Decimal  | Prefix to Netmask | Neo Util Tools</title>
+    <meta name="Description" content="Best tool to convert CIDR prefix length or routing prefix to mask in dotted decimal notation">
+    {{#headstart}}
+        {{{ . }}}
+    {{/headstart}}
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <style>
+      .unit-select {
+        padding: .5em 0 .5em .5em;
+        height: 2em; 
+        box-sizing: content-box; 
+        font-size: 2em; 
+      }
+
+      .unit-input:focus {
+        font-weight: bold; 
+        outline: none; 
+      }
+
+      [placeholder]:empty::before {
+        content: attr(placeholder);
+        color: #555; 
+      }
+
+      [placeholder]:empty:focus::before {
+        content: "";
+      }
+
+      /* @media screen and (min-width: 576) {
+        .container {
+          
+        }
+      } */
+      
+      @media screen and (min-width: 768px){
+        #bin_input{
+          letter-spacing: .4em;
+        }
+      }
+
+    </style>
+
+  </head>
+  <body>
+    {{#bodystart}}
+        {{{ . }}}
+    {{/bodystart}}
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+          <a class="navbar-brand" href='#'>IPv4 Address Space</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded='false' aria-label='Toggle Navigation' > 
+            <span class='navbar-toggler-icon'></span>
+          </button>
+
+         <div class="collapse navbar-collapse justify-content-end" id="navbar-content">
+          
+          <div class='navbar-nav'>
+              <a class="nav-item nav-link text-white" href="/">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-item nav-link text-white" href="#">About </a>
+          </div>
+
+         </div>
+
+        </div>
+    </nav>
+
+    <main class="container">
+    <section class="" style="">
+        <section class="d-flex flex-column">
+          <div class="py-3">
+            <input id="decimal_ip" class="form-control form-control-lg"  type="number" min="0" max="4294967295" value="">
+            <small class="text-muted">Decimal equivalent value of IPv4 Address </small>
+          </div>  
+          
+          <section class="py-3" id="ipdotted">
+              <!-- <input id="dotted_decimal_input" class="form-control form-control-lg" value=""> -->
+              <div class="row g-0" id="octets">
+                <div class="col-3 d-flex "> <input type="number" min="0" max="255"  data-octent="1" class="form-control form-control-lg p-md-2 p-0 text-center " value=""><span class="mx-2 align-self-end">.</span> </div>
+                <div class="col-3 d-flex "> <input type="number" min="0" max="255"  data-octent="2" class="form-control form-control-lg p-md-2 p-0 text-center " value=""><span class="mx-2 align-self-end">.</span> </div>
+                <div class="col-3 d-flex "> <input type="number" min="0" max="255"  data-octent="3" class="form-control form-control-lg p-md-2 p-0 text-center " value=""><span class="mx-2 align-self-end">.</span> </div>
+                <div class="col-3 d-flex "> <input type="number" min="0" max="255"  data-octent="4" class="form-control form-control-lg p-md-2 p-0 text-center" value=""></div>
+                
+                <!-- <div class="col col-3 form-control form-control-lg"></div>
+                <div class="col col-3 form-control form-control-lg"></div>
+                <div class="col col-3 form-control form-control-lg"></div> -->
+                
+              </div>
+              <small class="text-muted">IP in dotted decimal notation 192.168.5.10 </small>
+          </section>
+
+            <div class="row">
+              <div class="py-3 col-6">
+                <input id="hex_input0x" class="form-control form-control-lg" value="">
+                <small class="text-muted">Hexadecimal Notation. Ex: FFFFFF00 </small>
+              </div>
+              <div class="py-3 col-6">
+                <div id="hex_input16" class="form-control form-control-lg" ></div>
+                <small class="text-muted">Subscript 16 at the end is also used to show that number is Hexadecimal</small>
+              </div>
+            </div>
+
+            
+
+            <div class="py-3">
+              <input id="bin_input" class="form-control form-control-lg font-monospace" value="">
+              <small class="text-muted">Binary Notation</small>
+            </div>
+
+            <input type="range" min="0" max="4294967295" id="iprange" name="iprange" class="custom-form-range bg-primary">
+
+        </section>
+        <!-- <button id="calculate" type="submit" class="d-block float-right btn btn-success">Calculate</button> -->
+      </section>
+      <article class="mt-5">
+        <h1>IPv4 Address</h1>
+        <p>
+          IPv4 Address is the 32-bit binary number. These 32-bits arranged in different combinations
+          can represent total of  2<sup>32</sup>=4294967296<sub>10</sub>  numbers. 
+          Ranging from 0<sub>10</sub> to 4294967295<sub>10</sub>. 
+        </p>
+      </article>
+      </main>
+
+    <!-- <script src="{{{ STATIC_URL }}}/{{{ STATIC_PATH }}}gdeps.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="index.js" ></script>
+    
+    
+  </body>
+</html>
